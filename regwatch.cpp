@@ -14,8 +14,11 @@ int main()
     HANDLE hEvent = INVALID_HANDLE_VALUE;
         
     hEvent = CreateEvent(NULL, TRUE, FALSE, NULL);
-
-
+    if (hEvent == INVALID_HANDLE_VALUE)
+    {
+        std::cout << "Error in CreateEvent" << std::hex << GetLastError();
+        return lasterrror;
+    }
 
     status = RegOpenKeyEx(HKEY_LOCAL_MACHINE, L"SYSTEM\\CurrentControlSet\\Services\\HTTP\\Parameters", 0, KEY_ALL_ACCESS, &result);
 
