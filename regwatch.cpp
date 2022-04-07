@@ -4,6 +4,7 @@
 #include <iostream>
 #include <windows.h>
 #pragma comment (lib,"Advapi32")
+
 int main()
 {
     HKEY key;
